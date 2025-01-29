@@ -419,6 +419,40 @@
   transform: scale(1.1);
 }
 
+/* Add background images for each page */
+.home {
+  background: url('assets/background-home.jpg') no-repeat center center fixed;
+}
+
+.waiting {
+  background: url('images/woth4.jpeg') no-repeat center center fixed;
+}
+
+.event1 {
+  background: url('assets/background-event1.jpg') no-repeat center center fixed;
+}
+
+.event2 {
+  background: url('assets/background-event2.jpg') no-repeat center center fixed;
+}
+
+.event3 {
+  background: url('assets/background-event3.jpg') no-repeat center center fixed;
+}
+
+/* Overlay to make text readable */
+.background-overlay {
+  /* position: 100%; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: -1;
+}
+
+
 /* body {
   font-family: 'Poppins', sans-serif;
   margin: 0;
