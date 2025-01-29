@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Special Ghibli-Themed Milestones</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <header>
+    <h1 class="main-title">"THE BEST FREAKING MONTH"</h1>
+  </header>
+  <main>
+    <section class="jumbotron">
+      <h2>While you wait..</h2>
+      <p>"You will find some fun stuff here.."</p>
+      <a href="waiting.html" class="btn">Click Here</a>
+    </section>
+
+    <!-- Jumbotron 1: 6-Month Anniversary -->
+    <section class="jumbotron">
+      <h2>Six Months</h2>
+      <p>"How committed are you?"</p>
+      <div class="countdown">
+        <p><span id="timer-6months"></span></p>
+      </div>
+      <a href="event-6months.html" class="btn">View Details</a>
+    </section>
+
+    <!-- Jumbotron 2: Birthday -->
+    <section class="jumbotron">
+      <h2>Zico's Day</h2>
+      <p>"Feeling old?"</p>
+      <div class="countdown">
+        <p><span id="timer-birthday"></span></p>
+      </div>
+      <a href="event-birthday.html" class="btn">View Details</a>
+    </section>
+
+    <!-- Jumbotron 3: Valentine's Day -->
+    <section class="jumbotron">
+      <h2>Valentine's Day</h2>
+      <p>"Hmm..."</p>
+      <div class="countdown">
+        <p><span id="timer-valentine"></span></p>
+      </div>
+      <a href="event-valentine.html" class="btn">View Details</a>
+    </section>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    particlesJS.load('particles-js', 'particles-config.json', function () {
+      console.log('Particles.js loaded successfully!');
+    });
+  </script>
+</body>
+</html>

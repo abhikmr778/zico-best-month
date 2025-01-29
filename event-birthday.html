@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>  
+  <div id="preloader">
+      <div class="spinner"></div>
+  </div>  
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="waiting.html">While You Wait</a></li>
+        <li><a href="event-6months.html">Six Months</a></li>
+        <li><a href="event-birthday.html">Zico's Day</a></li>
+        <li><a href="event-valentine.html">Valentine's Day</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>It's not 10th yet..</h1>
+    <div id="countdown-birthday">
+      <p>Unlocks in: <span id="timer-birthday"></span></p>
+    </div>
+    <div id="content-birthday" class="hidden">
+      <h1>Happy Birthday!</h1>
+      <h2>How glad am I, for you to exist.</h2>
+      <p>Birthdayyyyyyyyyy</p>
+      <img src="images/birthday.jpg" alt="Happy Birthday">
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script>
+  particlesJS.load('particles-js', 'particles-config.json', function () {
+    console.log('Particles.js loaded successfully!');
+  });
+  </script>
+</body>
+</html>

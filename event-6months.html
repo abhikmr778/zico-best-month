@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>6-Month Anniversary</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div>  
+  <div id="preloader">
+      <div class="spinner"></div>
+  </div>  
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="waiting.html">While You Wait</a></li>
+        <li><a href="event-6months.html">Six Months</a></li>
+        <li><a href="event-birthday.html">Zico's Day</a></li>
+        <li><a href="event-valentine.html">Valentine's Day</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <h1>There's still time..</h1>
+    <div id="countdown-6months">
+      <p>Unlocks in: <span id="timer-6months"></span></p>
+    </div>
+    
+    <div id="content-6months" class="hidden">
+      <h2>Six-Months Omg</h2>
+      <h2>We hit the first milestone :></h2>
+      <br>
+      <!-- <div id="love-letter">
+        <p>
+          Dearest love,<br>
+          Every moment with you feels like a page from a fairy tale. <span id="read-more" class="hidden">Your laughter is my favorite melody, and your smile is my guiding light...</span>
+        </p>
+        <button onclick="toggleReadMore()">Read More</button>
+      </div>
+       -->
+      <h2>Our Timeline</h2>
+      <ul>
+        <li>
+          <h3>First Meeting</h3>
+          <p></p>
+        </li>
+        <li>
+          <h3>First Trip</h3>
+          <p></p>
+        </li>
+      </ul>
+      
+      <p>I texted you on discord on 7th August, its been six months since then, 7th Feb, start of Valentine's week.. hmm.</p>
+      <video controls>
+        <source src="videos/jett abyss 3k.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <br>
+      <br>
+      <p></p>
+      <img src="images/img1.png" alt="6-Month Anniversary">
+      <!-- Section 1: Photo Slideshow -->
+      <section class="slideshow-section">
+        <h2>Slideshow</h2>
+        <div class="slideshow">
+          <!-- Left Arrow -->
+          <button class="arrow left" id="prev-slide">&#10094;</button>
+      
+          <!-- Images in Slideshow -->
+          <div class="slide-container">
+            <img src="images/img1.png" alt="Photo 1" class="slide active">
+            <img src="images/img2.png" alt="Photo 2" class="slide">
+            <img src="images/img3.png" alt="Photo 3" class="slide">
+          </div>
+      
+          <!-- Right Arrow -->
+          <button class="arrow right" id="next-slide">&#10095;</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script src="script.js"></script>
+  <script>
+  particlesJS.load('particles-js', 'particles-config.json', function () {
+    console.log('Particles.js loaded successfully!');
+  });
+  </script>
+</body>
+</html>
