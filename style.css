@@ -65,7 +65,7 @@
   h1 {
     font-size: 2.5rem;
     margin-bottom: 20px;
-    color: #457b9d; /* Soft teal */
+    color: rgb(191, 249, 249); /* Soft teal */
   }
   
   p {
@@ -107,7 +107,7 @@
     background: rgba(245, 245, 245, 0.2); /* White */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    color: rgb(78, 180, 180);
+    color: rgb(191, 249, 249);
   }
   
   img {
@@ -256,6 +256,7 @@
   }
   .oct3 {
     background: rgba(32, 10, 10, 0.9);
+    color: white;
   }
   .jumbotron:hover {
     transform: scale(1.05);
