@@ -1,3 +1,12 @@
+// document.addEventListener("DOMContentLoaded", function () {
+//   const correctPassword = "yourpassword"; // Change this to your actual password
+//   let attempt = prompt("Enter the password to access the site:");
+
+//   if (attempt !== correctPassword) {
+//       alert("Incorrect password. Try again.");
+//       location.reload(); // Refresh the page if incorrect
+//   }
+// });
 
 // Wait for the DOM and countdown logic to fully load
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,10 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 100); // Adjust delay as necessary
   });
   
+
   // Example countdown initialization function
   function initializeCountdowns() {
     const eventDates = {
-      "6months": new Date("February 7, 2025 12:00:00"),
+      "6months": new Date("February 7, 2025 16:00:00"),
       // "6months": new Date("January 27, 2025 00:00:00"),
       "birthday": new Date("February 10, 2025 00:00:00"),
       "valentine": new Date("February 14, 2025 00:00:00")

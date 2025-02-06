@@ -254,6 +254,9 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
   }
+  .oct3 {
+    background: rgba(32, 10, 10, 0.9);
+  }
   .jumbotron:hover {
     transform: scale(1.05);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
