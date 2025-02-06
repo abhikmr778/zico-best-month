@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script src="script.js"></script>
 </head>
-<body>
+<body class="event1">
   <div id="particles-js"></div>  
   <div id="preloader">
       <div class="spinner"></div>
@@ -25,8 +26,8 @@
     </nav>
   </header>
   <main>
-    <h3>There's still time..</h3>
     <div id="countdown-6months">
+      <h3>There's still time..</h3>
       <p>Unlocks in: <span id="timer-6months"></span></p>
     </div>
     
@@ -34,56 +35,59 @@
       <h2>Six-Months Omg</h2>
       <h2>We hit the first milestone :></h2>
       <br>
-      <!-- <div id="love-letter">
-        <p>
-          Dearest love,<br>
-          Every moment with you feels like a page from a fairy tale. <span id="read-more" class="hidden">Your laughter is my favorite melody, and your smile is my guiding light...</span>
-        </p>
-        <button onclick="toggleReadMore()">Read More</button>
-      </div>
-       -->
-      <h2>Our Timeline</h2>
-      <ul>
-        <li>
-          <h3>First Meeting</h3>
-          <p></p>
-        </li>
-        <li>
-          <h3>First Trip</h3>
-          <p></p>
-        </li>
-      </ul>
-      
-      <p>I texted you on discord on 7th August, its been six months since then, 7th Feb, start of Valentine's week.. hmm.</p>
-      <video controls>
-        <source src="videos/jett abyss 3k.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+      <!-- 🔹 Jumbotron Sections for Text & Images -->
+            
+            <!-- Section 1 -->
+            <div class="jumbotron">
+              <h2>🌟 The Beginning</h2>
+              <p>This is where it all started. Our first conversations, laughs, and the moment we truly connected.</p>
+              <img src="images/img1.png" alt="First Memory">
+          </div>
+
+          <!-- Section 2 -->
+          <div class="jumbotron">
+              <h2>💖 First Call</h2>
+              <p>That special moment when we heard each other's voices and felt even closer.</p>
+              <img src="images/img2.png" alt="First Call">
+          </div>
+
+          <!-- Section 3 -->
+          <div class="jumbotron">
+              <h2>🎶 Our Songs</h2>
+              <p>Every song we shared, every lyric that spoke for us.</p>
+              <img src="images/img3.png" alt="Music Moments">
+          </div>
+
+          <!-- Section 4 -->
+          <div class="jumbotron">
+              <h2>🌙 Late Night Talks</h2>
+              <p>Those late nights where time disappeared, and all that mattered was us.</p>
+              <img src="images/woth1.jpg" alt="Late Night Talks">
+          </div>
+
+          <!-- Section 5 -->
+          <div class="jumbotron">
+              <h2>💕 Thank You</h2>
+              <p>For every moment, every laugh, every feeling—you mean everything to me.</p>
+              <img src="images/memory5.jpg" alt="Grateful">
+          </div>      
+
+          <!-- Section 6 -->
+           <div class="jumbotron">
+             <p>I texted you on discord on 7th August, its been six months since then, 7th Feb, start of Valentine's week.. hmm.</p>
+             <video controls>
+               <source src="videos/jett abyss 3k.mp4" type="video/mp4">
+               Your browser does not support the video tag.
+             </video>
+            </div>
       <br>
       <br>
       <p></p>
-      <img src="images/img1.png" alt="6-Month Anniversary">
-      <!-- Section 1: Photo Slideshow -->
-      <section class="slideshow-section">
-        <h2>Slideshow</h2>
-        <div class="slideshow">
-          <!-- Left Arrow -->
-          <button class="arrow left" id="prev-slide">&#10094;</button>
-      
-          <!-- Images in Slideshow -->
-          <div class="slide-container">
-            <img src="images/img1.png" alt="Photo 1" class="slide active">
-            <img src="images/img2.png" alt="Photo 2" class="slide">
-            <img src="images/img3.png" alt="Photo 3" class="slide">
-          </div>
-      
-          <!-- Right Arrow -->
-          <button class="arrow right" id="next-slide">&#10095;</button>
-        </div>
-      </section>
+
+     
     </div>
   </main>
-  <script src="script.js"></script>
+  
   <script>
   particlesJS.load('particles-js', 'particles-config.json', function () {
     console.log('Particles.js loaded successfully!');
