@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       "birthday": new Date("February 10, 2025 00:00:00"),
       "valentine": new Date("February 14, 2025 00:00:00")
     };
-  
+
     Object.keys(eventDates).forEach(eventId => {
       const timerElement = document.getElementById(`timer-${eventId}`);
       if (!timerElement) return;
