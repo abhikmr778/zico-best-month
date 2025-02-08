@@ -27,9 +27,14 @@
   
   /* Header Styling */
   header {
-    background-color: #a8dadc; /* Light blue */
+    background-color: rgb(168, 218, 220); /* Light blue */
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     padding: 20px 20px;
+  }
+
+  .bdaynav {
+    padding: 10px 10px;
+    background: rgb(168, 218, 220, 0.2)
   }
   
   nav ul {
@@ -101,7 +106,7 @@
   #content-6months,
   #content-birthday,
   #content-valentine {
-    margin: 700px auto auto;
+    margin: auto auto auto;
     padding: 20px;
     max-width: 1200px;
     background: rgba(245, 245, 245, 0.2); /* White */
@@ -109,7 +114,15 @@
     border-radius: 10px;
     color: rgb(191, 249, 249);
   }
-  
+  #content-6months {
+    margin: 700px auto auto;
+  }
+  #content-birthday {
+    margin: 650px auto auto;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.1); /* White */
+    color: rgb(132, 181, 181);
+  }
   img {
     max-width: 70%;
     height: auto;
@@ -439,7 +452,8 @@
 }
 
 .event2 {
-  background: url('assets/background-event2.jpg') no-repeat center center fixed;
+  background: url('images/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 .event3 {
@@ -503,3 +517,81 @@
   transform: scale(1.05);
 } */
 
+
+
+/* 🎆 Fireworks Canvas */
+#fireworksCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Keep fireworks above background */
+}
+/* 🌌 Night Sky Background */
+/* .birthday {
+  background: url('images/night-sky.jpg') no-repeat center center fixed;
+  background-size: cover;
+} */
+/* 🎉 GRAND Birthday Text (Big, Centered, Glowing) */
+.birthday-text {
+  position: absolute;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem; /* Very big */
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 5px 5px 20px rgba(255, 204, 0, 0.9), 10px 10px 30px rgba(255, 69, 0, 1);
+  animation: zoomIn 3s ease-in-out, glow 2s infinite alternate;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 2; /* Ensure it's above fireworks */
+}
+.birthday-image {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  width: 1200;
+  height: auto;
+  transform: translate(-50%, -50%);
+  font-size: 10rem; /* Very big */
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 5px 5px 20px rgba(255, 204, 0, 0.9), 10px 10px 30px rgba(255, 69, 0, 1);
+  animation: zoomIn 2s ease-in-out, glow 2s infinite alternate;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 2; /* Ensure it's above fireworks */
+}
+
+/* 🔥 Animations */
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translate(-100%, -50%);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translate(-50%, -50%);
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 5px 5px 20px rgba(255, 204, 0, 0.9);
+  }
+  to {
+    text-shadow: 10px 10px 30px rgba(255, 69, 0, 1);
+  }
+}
+
+/* Hidden Until Shown */
+.hiddentext {
+  display: none;
+}
+
+.hiddencanvas {
+  display: none;
+}

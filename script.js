@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function initializeCountdowns() {
     const eventDates = {
       "6months": new Date("February 7, 2025 08:00:00"),
-      // "6months": new Date("January 27, 2025 00:00:00"),
+      // "birthday": new Date("January 27, 2025 00:00:00"),
       "birthday": new Date("February 10, 2025 00:00:00"),
       "valentine": new Date("February 14, 2025 00:00:00")
     };
@@ -116,4 +116,5 @@ prevArrow.addEventListener("click", prevSlide);
 
 // Initialize the slideshow
 showSlide(currentSlideIndex);
+
 

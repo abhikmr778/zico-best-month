@@ -8,12 +8,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
-<body>
+<body class="event2 birthday">
   <div id="particles-js"></div>  
   <div id="preloader">
       <div class="spinner"></div>
   </div>  
-  <header>
+  <!-- Fireworks Canvas -->
+  <canvas id="fireworksCanvas"></canvas>
+  <header class="bdaynav">
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -25,15 +27,17 @@
     </nav>
   </header>
   <main>
-    <h3>It's not 10th yet..</h3>
     <div id="countdown-birthday">
+      <h3>It's not 10th yet..</h3>
       <p>Unlocks in: <span id="timer-birthday"></span></p>
     </div>
-    <div id="content-birthday" class="hidden">
-      <h1>Happy Birthday!</h1>
+    
+    <!-- 🎉 Grand Animated Birthday Text -->
+    <h1 class="birthday-text hiddentext" id="birthdayMessage">🍾🎂🔥 HAPPY ZICO DAY 🔥🎂🍾 </h1>
+    <div id="content-birthday" class="hiddentext">
       <h2>How glad am I, for you to exist.</h2>
-      <p>Birthdayyyyyyyyyy</p>
-      <img src="images/birthday.jpg" alt="Happy Birthday">
+      <h2>A very happy fucking crazy wazy comfy cozy fabulous february birthday!</h2>
+      <img class="birthday-image hiddentext" id="bdayimage" src="images/thug.png" alt="Happy Birthday">
     </div>
   </main>
   <script src="script.js"></script>
@@ -41,6 +45,91 @@
   particlesJS.load('particles-js', 'particles-config.json', function () {
     console.log('Particles.js loaded successfully!');
   });
+
+  // 🎆 Improved Grand Fireworks Animation
+  window.onload = function () {
+      const canvas = document.getElementById("fireworksCanvas");
+      const ctx = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      class Firework {
+        constructor(x, y, color) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          this.size = Math.random()*5; // Bigger particles
+          this.speedX = (Math.random() - 0.5) * 4; // More explosive
+          this.speedY = (Math.random() - 0.5) * 4;
+          this.alpha = 1;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+          this.alpha -= 0.01; // Slower fading for grander effect
+        }
+
+        draw() {
+          ctx.globalAlpha = this.alpha;
+          ctx.fillStyle = this.color;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      let fireworks = [];
+
+      function createFirework() {
+        let x = canvas.width*0.2 + Math.random() * canvas.width*0.6;
+        let y = canvas.height*0.2 + Math.random() * canvas.height * 0.32; // Higher explosions
+        // let colors = ["#c63347", "#f28e63", "#fc7f81", "#faefc4", "#f9ae9b", "#792bb2", "#2e42cb", "#f75781", "#e365e4", "#fa5348"];
+        let colors = ["#CE2029", "#FFFCAF", "#FFE17C", "#FF664B", "#903843"];
+        // let colors = ["#0b5e81", "#5b88a4", "#a6adbe", "#d98676", "#cb4e5d", "#87565e"];
+        let color = colors[Math.floor(Math.random() * colors.length)];
+
+        for (let i = 0; i < 110; i++) { // More particles per explosion
+          fireworks.push(new Firework(x, y, color));
+        }
+      }
+
+      function animateFireworks() {
+        ctx.fillStyle = "rgba(11, 16, 38, 0.2)"; // Darker background effect
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        fireworks.forEach((firework, index) => {
+          firework.update();
+          firework.draw();
+          if (firework.alpha <= 0) {
+            fireworks.splice(index, 1);
+          }
+        });
+
+        requestAnimationFrame(animateFireworks);
+      }
+
+      setInterval(createFirework, 400); // More frequent bursts
+      setInterval(createFirework, 400); // More frequent bursts
+      setInterval(createFirework, 400); // More frequent burst
+      setInterval(createFirework, 400); // More frequent burst
+      setInterval(createFirework, 400); // More frequent burst
+      setInterval(createFirework, 400); // More frequent bursts
+      animateFireworks();
+    };
+
+    // 🎉 Delayed Grand Birthday Message
+    setTimeout(() => {
+      document.getElementById("birthdayMessage").classList.remove("hiddentext");
+    }, 1000);
+
+    setTimeout(() => {
+          document.getElementById("bdayimage").classList.remove("hiddentext");
+        }, 1000);
+        
+    setTimeout(() => {
+      document.getElementById("content-birthday").classList.remove("hiddentext");
+    }, 3000);
+
   </script>
 </body>
 </html>
