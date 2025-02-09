@@ -35,10 +35,16 @@
     <!-- 🎉 Grand Animated Birthday Text -->
     <h1 class="birthday-text hiddentext" id="birthdayMessage">🍾🎂🔥 HAPPY ZICO DAY 🔥🎂🍾 </h1>
     <div id="content-birthday" class="hiddentext">
-      <h2>How glad am I, for you to exist.</h2>
-      <h2>A very happy fucking crazy wazy comfy cozy fabulous february birthday!</h2>
+      <h2 id="birthdayMessageText"></h2>
+      <h2></h2>
       <img class="birthday-image hiddentext" id="bdayimage" src="images/thug.png" alt="Happy Birthday">
+
+      <audio id="birthdayMusic" loop>
+          <source src="music/happy-birthday.mp3" type="audio/mp3">
+      </audio>
+    
     </div>
+
   </main>
   <script src="script.js"></script>
   <script>
@@ -50,6 +56,7 @@
   function startFireworks() {
       const canvas = document.getElementById("fireworksCanvas");
       const ctx = canvas.getContext("2d");
+      canvas.classList.remove("hidden"); // Show canvas
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
 
@@ -116,13 +123,26 @@
       setInterval(createFirework, 400); // More frequent bursts
       animateFireworks();
     };
+
+
+    function playBirthdayMusic() {
+        const music = document.getElementById("birthdayMusic");
+        music.volume = 0.5; // Adjust volume (0.0 to 1.0)
+        music.play();
+    }
     // 🎉 Show Everything After Countdown Ends
     function unlockPage() {
       document.getElementById("fireworksCanvas").classList.remove("hidden");
-      document.getElementById("birthdayMessage").classList.remove("hiddentext");
-      document.getElementById("content-birthday").classList.remove("hiddentext");
-      document.getElementById("bdayimage").classList.remove("hiddentext");
       startFireworks();
+      playBirthdayMusic(); // 🎶 Start music
+       // Show text and content after 5 sec of fireworks
+       setTimeout(() => {
+        document.getElementById("birthdayMessage").classList.remove("hiddentext");
+        document.getElementById("bdayimage").classList.remove("hiddentext");
+      }, 3000);   
+      setTimeout(() => {
+        document.getElementById("content-birthday").classList.remove("hiddentext");
+      }, 5000);   
     }
     // 🎂 Countdown Timer
     function startCountdown() {
@@ -149,7 +169,24 @@
 
     startCountdown();
 
+    function typeBirthdayMessage() {
+    const message = "How glad am I, for you to exist. A very happy fucking crazy wazy comfy cozy fabulous february birthday! 🎂🎉💖";
+    let index = 0;
+    const element = document.getElementById("birthdayMessageText");
+    element.classList.remove("hidden");
 
+    function type() {
+        if (index < message.length) {
+            element.innerHTML += message[index];
+            index++;
+            setTimeout(type, 100); // Adjust speed (lower is faster)
+        }
+    }
+    type();
+}
+
+// Show message after 7 sec (2 sec after text appears)
+setTimeout(typeBirthdayMessage, 7000);
 
   </script>
 </body>
