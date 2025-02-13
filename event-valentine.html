@@ -38,7 +38,7 @@
           <!-- Night Sky Background -->
           <div id="night-sky">
               <!-- Aquarius Constellation -->
-              <img id="aquarius" src="images/aquarius.png" alt="Aquarius Constellation">
+              <img id="aquarius" src="images/Aquarius-1.png" alt="Aquarius Constellation">
               
               <!-- Saturn (Heart is hidden in its rings) -->
               <img id="saturn" src="images/saturn.png" class="clickable" alt="Saturn">
@@ -63,80 +63,99 @@
           
         </div>
 
+        
+
+        <!-- Puzzle 2 (Initially Hidden) -->
         <div id="puzzle-2" class="hidden">
             <h2>🔢 Solve the Three Clues</h2>
-            <p>Each clue reveals a part of the code.</p>
-        
-            <!-- Clue 1 -->
-            <div class="clue-box">
-                <p>🔍 "In the celestial river where the water-bearer pours, count the luminous whispers that ancient skies adore. Not all are seen, but those that gleam, their number lies between the twin primes of 13 and 17."</p>
-                <p class="hidden" id="clue1-answer">Digit 1: <strong>4</strong></p>
+            <p>Click on each card to reveal a clue. Find all three digits to unlock the next puzzle!</p>
+
+            <!-- Flip Card Clues -->
+            <div class="clue-container">
+                <div class="flip2-card" onclick="flipCard(1)">
+                    <div class="flip2-card-inner">
+                        <div class="flip2-card-front">🔍 Click to Reveal Clue 1</div>
+                        <div class="flip2-card-back">"In the celestial river where the water-bearer pours, count the luminous whispers that ancient skies adore. Not all are seen, but those that gleam, their number lies between the twin primes of 13 and 17."</div>
+                    </div>
+                </div>
+
+                <div class="flip2-card" onclick="flipCard(2)">
+                    <div class="flip2-card-inner">
+                        <div class="flip2-card-front">🗓️ Click to Reveal Clue 2</div>
+                        <div class="flip2-card-back">"From the moment I spoke the question that bound our fates, the moon has waxed and waned in silent debate. Divide the sum of its cycles by the number of seasons, and the answer lies in the realm of earthly reasons."</div>
+                    </div>
+                </div>
+
+                <div class="flip2-card" onclick="flipCard(3)">
+                    <div class="flip2-card-inner">
+                        <div class="flip2-card-front">🌍 Click to Reveal Clue 3</div>
+                        <div class="flip2-card-back">"When the sun kisses the horizon and the shadows grow long, a transformation occurs, subtle yet strong. The hour is neither morning nor night, but the moment when you blush with golden light."</div>
+                    </div>
+                </div>
             </div>
-        
-            <!-- Clue 2 -->
-            <div class="clue-box">
-                <p>🗓️ "From the moment I spoke the question that bound our fates, the moon has waxed and waned in silent debate. Divide the sum of its cycles by the number of seasons, and the answer lies in the realm of earthly reasons."</p>
-                <p class="hidden" id="clue2-answer">Digit 2: <strong>07</strong></p>
-            </div>
-        
-            <!-- Clue 3 -->
-            <div class="clue-box">
-                <p>🌙 "When the sun kisses the horizon and the shadows grow long, a transformation occurs, subtle yet strong. The hour is neither morning nor night, but the moment when you blush with golden light."
-                </p>
-                <p class="hidden" id="clue3-answer">Digit 3: <strong>8</strong></p>
-            </div>
-        
+
             <!-- Input Code to Unlock Puzzle 3 -->
             <div class="code-entry">
                 <p>Enter the code:</p>
-                <input type="text" id="codeInput" placeholder="Enter code..." maxlength="3">
+                <input type="text" id="codeInput" placeholder="Enter code..." maxlength="4">
                 <button onclick="checkPuzzle2Code()">Unlock</button>
                 <p id="codeMessage" class="hidden">✅ Correct! Unlocking Puzzle 3...</p>
             </div>
         </div>
-        <!-- Puzzle 3 (Initially Hidden) -->
-        <div id="puzzle-3" class="hidden">
-            <h2>🔐 Unlock the Final Message</h2>
-            <p>Find the right codes! Each clue helps you solve one box.</p>
 
-            <div class="clue-container">
-                <!-- Clue Cards -->
-                <div class="clue-card" onclick="flipClue(1)">Clue 1</div>
-                <div class="clue-card" onclick="flipClue(2)">Clue 2</div>
-                <div class="clue-card" onclick="flipClue(3)">Clue 3</div>
-                <div class="clue-card" onclick="flipClue(4)">Clue 4</div>
-            </div>
+       <!-- Puzzle 3 (Initially Hidden) -->
+<div id="puzzle-3" class="hidden">
+    <h2>🔐 How good is your memory.</h2>
+    <p>Each clue helps you find one code.</p>
 
-            <div class="code-container">
-                <!-- Code Boxes -->
-                <input type="text" id="code1" class="code-box" placeholder="Enter code 1" maxlength="3">
-                <input type="text" id="code2" class="code-box" placeholder="Enter code 2" maxlength="3">
-                <input type="text" id="code3" class="code-box" placeholder="Enter code 3" maxlength="3">
-                <input type="text" id="code4" class="code-box" placeholder="Enter code 4" maxlength="3">
-            </div>
-
-            <button onclick="checkFinalCode()">Unlock</button>
-            <p id="finalCodeMessage" class="hidden">✅ Correct! Unlocking final surprise...</p>
+    <div class="code-container">
+        <!-- Clue 1 -->
+        <div class="code-box">
+            <p>Clue: "The day when I asked you to be my partner.."</p>
+            <input type="text" id="code1" placeholder="Enter code 1" maxlength="3">
         </div>
 
-        <!-- Final Valentine Message (Initially Hidden) -->
-        <div id="valentine-message" class="hidden">
+        <!-- Clue 2 -->
+        <div class="code-box">
+            <p>Clue: "How many times have we visited Lohia Park."</p>
+            <input type="text" id="code2" placeholder="Enter code 2" maxlength="3">
+        </div>
+
+        <!-- Clue 3 -->
+        <div class="code-box">
+            <p>Clue: "Your partner's birthday day."</p>
+            <input type="text" id="code3" placeholder="Enter code 3" maxlength="3">
+        </div>
+
+        <!-- Clue 4 -->
+        <div class="code-box">
+            <p>Clue: "Your fav number."</p>
+            <input type="text" id="code4" placeholder="Enter code 4" maxlength="3">
+        </div>
+    </div>
+
+    <button onclick="checkFinalCode()">Unlock</button>
+    <p id="finalCodeMessage" class="hidden">✅ Correct! Unlocking final surprise...</p>
+</div>
+
+
+        <!-- Full-Screen Valentine Question -->
+        <div id="valentine-screen" class="hidden">
             <h1 id="valentine-text">Will you be my valentine? ❤️</h1>
-            <button id="yes-button" onclick="startFireworks()">Yes</button>
+            <div class="button-container">
+                <button id="yes-button" onclick="startFireworks()">Yes</button>
+                <button id="no-button" onclick="showSadImage()">No</button>
+            </div>
         </div>
 
         <!-- Fireworks Container -->
         <canvas id="fireworks"></canvas>
 
-
+        <!-- Sad Image (Hidden Initially) -->
+        <img id="sad-image" src="images/sad.jpg" class="hidden" alt="Sad Image">
         
     </div>
 
-
-    
-
-
-    
   </main>
   <script src="script.js"></script>
   <script>
@@ -210,22 +229,32 @@ document.addEventListener("DOMContentLoaded", function () {
         puzzle2.classList.remove("hidden"); // Show Puzzle 2
     });
 
-    function checkPuzzle2Code() {
-        const input = document.getElementById("codeInput").value;
-        if (input === "478") {  // Example code
-            document.getElementById("codeMessage").classList.remove("hidden");
-
-            setTimeout(() => {
-                puzzle2.classList.add("hidden"); // Hide Puzzle 2
-                document.getElementById("puzzle-3").classList.remove("hidden"); // Reveal Puzzle 3
-            }, 1500);
-        } else {
-            alert("❌ Wrong code! Try again.");
+    function flipCard(cardNumber) {
+        const card = document.querySelector(`.flip2-card:nth-child(${cardNumber})`);
+        if (card) {
+            card.classList.toggle("flipped");
         }
     }
 
-    // Expose function globally
-    window.checkPuzzle2Code = checkPuzzle2Code;
+    // function checkPuzzle2Code() {
+    //     const input = document.getElementById("codeInput").value;
+    //     console.log(input)
+    //     if (input === "1433") {  // Example code
+    //         document.getElementById("codeMessage").classList.remove("hidden");
+
+    //         setTimeout(() => {
+    //             puzzle2.classList.add("hidden"); // Hide Puzzle 2
+    //             document.getElementById("puzzle-3").classList.remove("hidden"); // Reveal Puzzle 3
+    //         }, 1500);
+    //     } else {
+    //         alert("❌ Wrong code! Try again.");
+    //     }
+    // }
+
+    // // Expose function globally
+    // window.checkPuzzle2Code = checkPuzzle2Code;
+    window.flipCard = flipCard;
+
 });
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -237,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // When Puzzle 2 is solved, hide it & show Puzzle 3
     function checkPuzzle2Code() {
         const input = document.getElementById("codeInput").value;
-        if (input === "478") {
+        if (input === "1433") {
             document.getElementById("codeMessage").classList.remove("hidden");
 
             setTimeout(() => {
@@ -248,26 +277,32 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("❌ Wrong code! Try again.");
         }
     }
+    // Show Sad Image on "No"
+    function showSadImage() {
+        console.log("showSad")
+        document.getElementById("valentine-screen").classList.add("hidden");
+        document.getElementById("sad-image").style.display = "flex";
+    }
 
     // Check if the four codes are correct to unlock the final surprise
     function checkFinalCode() {
-        const code1 = document.getElementById("code1").value;
-        const code2 = document.getElementById("code2").value;
-        const code3 = document.getElementById("code3").value;
-        const code4 = document.getElementById("code4").value;
+    const code1 = document.getElementById("code1").value;
+    const code2 = document.getElementById("code2").value;
+    const code3 = document.getElementById("code3").value;
+    const code4 = document.getElementById("code4").value;
 
-        if (code1 === "123" && code2 === "456" && code3 === "789" && code4 === "101") {
-            document.getElementById("finalCodeMessage").classList.remove("hidden");
+    if (code1 === "4" && code2 === "4" && code3 === "19" && code4 === "10") {
+        document.getElementById("finalCodeMessage").classList.remove("hidden");
+        // document.getElementById("valentine-screen").classList.remove("hidden");
 
-            setTimeout(() => {
-                puzzle3.classList.add("hidden");
-                valentineMessage.classList.remove("hidden")
-                valentineMessage.classList.add("show");
-            }, 2000);
-        } else {
-            alert("❌ Wrong codes! Try again.");
-        }
+        setTimeout(() => {
+            document.getElementById("puzzle-3").classList.add("hidden"); // Hide Puzzle 3
+            document.getElementById("valentine-screen").classList.add("show"); // Show Question
+        }, 2000);
+    } else {
+        alert("❌ Wrong codes! Try again.");
     }
+}
 
     // Fireworks Animation
     function startFireworks() {
@@ -295,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.x += this.speedX;
             this.y += this.speedY;
             this.speedY += this.gravity;
-            this.alpha -= 0.02;
+            this.alpha -= 0.005;
         }
 
         draw() {
@@ -308,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function createFirework() {
-        const colors = ["#ff69b4", "#ff1493", "#ff0000", "#ff4500", "#ffa07a"];
+        const colors = ["#CE2029", "#FFFCAF", "#FFE17C", "#FF664B", "#903843"];
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height * 0.6; // Fireworks burst in upper 60% of the screen
 
@@ -333,9 +368,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setInterval(createFirework, 800); // Fireworks keep bursting
+    setInterval(createFirework, 800); // Fireworks keep bursting
+    setInterval(createFirework, 800); // Fireworks keep bursting
+    setInterval(createFirework, 800); // Fireworks keep bursting
+    setInterval(createFirework, 800); // Fireworks keep bursting
     animateFireworks();
 }
 
+    
 
     // Expose functions globally
     window.checkPuzzle2Code = checkPuzzle2Code;

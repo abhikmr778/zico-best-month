@@ -653,10 +653,10 @@
 /* Aquarius Constellation */
 #aquarius {
   position: absolute;
-  top: 160%;
-  left: 15%;
-  width: 200px;
-  opacity: 0.6;
+  top: 200%;
+  left: 5%;
+  width: 400px;
+  opacity: 0.3;
 }
 
 /* Saturn */
@@ -814,7 +814,7 @@
 
 /* Back */
 .flip-card-back {
-  background: #ffe4e1;
+  background: #4c5064;
   color: black;
   transform: rotateY(180deg);
 }
@@ -836,7 +836,7 @@
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
   text-align: center;
   transition: opacity 0.25s ease-in-out;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 
 /* Hide Puzzle 2 by Default */
@@ -844,6 +844,66 @@
   opacity: 0;
   pointer-events: none;
 }
+/* Make Clue Cards Stack Vertically */
+.clue-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Flip Card */
+.flip2-card {
+  width: 400px;
+  height: 120px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+/* Flip Animation */
+.flip2-card-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Flip When Clicked */
+.flip2-card.flipped .flip2-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Styling */
+.flip2-card-front, .flip2-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+/* Front */
+.flip2-card-front {
+  background: #1d3557;
+  color: white;
+}
+
+/* Back */
+.flip2-card-back {
+  background: #fff4f3;
+  color: black;
+  transform: rotateY(180deg);
+}
+
 
 /* Hide the Clue Card When Puzzle 2 Appears */
 .hidden-clue {
@@ -896,89 +956,134 @@ button:hover {
   background-color: #d14787;
 }
 
-
 /* Puzzle 3 Styling */
 #puzzle-3 {
+  position: fixed;
+  top: 25%;
+  left: 35.5%;
   text-align: center;
   margin-top: 20px;
   padding: 20px;
-  background: rgba(255, 192, 203, 0.95);
+  background: rgb(43, 39, 56);
   border-radius: 15px;
-  width: 80%;
+  width: 100%;
   max-width: 500px;
   margin: auto;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0.8;
 }
 
-/* Clue Cards */
-.clue-container {
+/* Code Box Styling */
+.code-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   gap: 15px;
-  margin-bottom: 15px;
 }
 
-.clue-card {
-  background: #ff69b4;
-  color: white;
+.code-box {
+  width: 220px;
+  padding: 15px;
+  border: 2px solid #1d3557;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+}
+
+/* Input Fields */
+.code-box input {
+  width: 100%;
   padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  border: none;
+  outline: none;
+}
+
+/* Clue Styling */
+.code-box p {
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+
+/* Full-Screen Valentine Screen */
+#valentine-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  /* animation: zoomIn 3s ease-in-out; */
+}
+#valentine-screen.hidden{
+  display: none;
+}
+/* Show Valentine Screen */
+#valentine-screen.show {
+  opacity: 1;
+  display: flex;
+}
+
+/* Buttons */
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+#yes-button, #no-button {
+  padding: 15px 30px;
+  font-size: 24px;
+  border: none;
   border-radius: 10px;
   cursor: pointer;
-  width: 100px;
-  text-align: center;
   font-weight: bold;
   transition: transform 0.3s;
 }
 
-.clue-card:hover {
-  transform: scale(1.1);
-}
-
-/* Code Boxes */
-.code-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 15px;
-}
-
-.code-box {
-  width: 70px;
-  padding: 10px;
-  font-size: 18px;
-  text-align: center;
-  border: 2px solid #ff69b4;
-  border-radius: 5px;
-}
-
-/* Valentine Message */
-#valentine-message {
-  text-align: center;
-  font-size: 3rem;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
-}
-
-/* Show Valentine Message */
-#valentine-message.show {
-  opacity: 1;
-}
-
-/* "Yes" Button */
 #yes-button {
-  margin-top: 20px;
-  padding: 15px 25px;
-  font-size: 24px;
   background: #ff69b4;
   color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+}
+
+#no-button {
+  background: #555;
+  color: white;
 }
 
 #yes-button:hover {
+  transform: scale(1.1);
   background: #d14787;
 }
+
+#no-button:hover {
+  transform: scale(1.1);
+  background: #333;
+}
+
+/* Sad Image Styling */
+#sad-image {
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  display: none;
+}
+
 
 /* Full-Screen Fireworks */
 #fireworks {
