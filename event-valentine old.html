@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+</head>
+<body>
+  <div id="particles-js"></div> 
+  <div id="preloader">
+      <div class="spinner"></div>
+  </div>  
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="waiting.html">While You Wait</a></li>
+        <li><a href="event-6months.html">Six Months</a></li>
+        <li><a href="event-birthday.html">Zico's Day</a></li>
+        <li><a href="event-valentine.html">Valentine's Day</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    
+
+    <h3>The moon is beautiful tonight, isn't it? (This is too cheesy.)</h3>
+    <div class="floating-messages">
+        <p class="love-note">loveliest, you are</p>
+        <p class="love-note">holding you is peak</p>
+        <p class="love-note">breathing you in is intoxicating</p>
+        <p class="love-note">your touch melts me</p>
+    </div>
+
+  
+    <!-- <div id="countdown-valentine">
+      <p>Unlocks in: <span id="timer-valentine"></span></p>
+    </div>
+
+    <div id="content-valentine" class="hidden">
+      <h2>Valentine</h2>
+      <p>Valentineeeeeeeeeeeee</p>
+    </div> -->
+
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">Flip Me!</div>
+            <div class="flip-card-back">Try again</div>
+        </div>
+    </div>
+    <div class="flip-card">
+        <div class="flip-card-inner">
+            <div class="flip-card-front">Flip Me!</div>
+            <div class="flip-card-back">Not here what you looking for</div>
+        </div>
+    </div>
+  
+    <img id="hiddenHeart" class="hidden" src="images/heart.png" alt="Hidden Heart">
+    <div id="puzzle-room">
+      <h2>🔎 Unlock My Heart ❤️</h2>
+      <p>Can you solve the clues and unlock the final message?</p>
+      
+      <!-- Puzzle 1: Find the Hidden Heart -->
+      <div class="puzzle" id="puzzle1">
+          <p>Clue: A heart is hiding somewhere on this page. Click it to reveal the next step! 💖</p>
+      </div>
+  
+      <!-- Puzzle 2: The Love Code -->
+      <div class="puzzle hidden" id="puzzle2">
+          <p>Clue: A special date unlocks the next step. What is the date we first met? (Format: DDMMYYYY)</p>
+          <input type="text" id="loveCodeInput" placeholder="Enter the code...">
+          <button onclick="checkLoveCode()">Submit</button>
+          <p id="loveCodeMessage" class="hidden">✨ Correct! Next clue unlocked! ✨</p>
+      </div>
+  
+      <!-- Puzzle 3: The Final Lock -->
+      <div class="puzzle hidden" id="puzzle3">
+          <p>Clue: Rearrange these letters to spell something important...  
+              <strong> "TVOULEO" </strong>  
+          </p>
+          <input type="text" id="finalCodeInput" placeholder="Enter the word...">
+          <button onclick="checkFinalCode()">Submit</button>
+          <p id="finalCodeMessage" class="hidden">✨ Correct! You unlocked my heart! ❤️✨</p>
+      </div>
+  
+      <!-- Final Surprise Message -->
+      <div id="finalMessage" class="hidden">
+          <h2>💌 My Love Letter to You 💌</h2>
+          <p>My love, you are my greatest adventure. Every moment with you is a treasure, and solving this puzzle is just another way to remind you that you hold the key to my heart forever. ❤️</p>
+      </div>
+  </div>
+  
+
+
+
+
+  </main>
+  <script src="script.js"></script>
+  <script>
+
+// Puzzle 1: Click the Hidden Heart to Unlock Next Puzzle
+document.addEventListener("DOMContentLoaded", function () {
+    const heart = document.getElementById("hiddenHeart");
+
+    if (!heart) {
+        console.error("Error: Hidden heart element not found!");
+        return;
+    }
+
+    // Get the heart's position
+    const heartRect = heart.getBoundingClientRect();
+    const heartX = heartRect.left + window.scrollX; // X position on the page
+    const heartY = heartRect.top + window.scrollY; // Y position on the page
+
+    console.log(`Heart should appear at: X=${heartX}, Y=${heartY}`);
+
+    // Listen for any click on the page
+    document.addEventListener("click", function (event) {
+        const clickX = event.pageX;
+        const clickY = event.pageY;
+
+        console.log(`User clicked at: X=${clickX}, Y=${clickY}`);
+        console.log(`${heartX}, ${heartY}`)
+
+        // Define a click tolerance (so the user doesn't need to click exactly on the pixel)
+        const tolerance = 50;
+
+        if (
+            clickX >= heartX - tolerance && clickX <= heartX + tolerance &&
+            clickY >= heartY - tolerance && clickY <= heartY + tolerance
+        ) {
+            console.log("Correct area clicked! Revealing the heart...");
+            heart.classList.remove("hidden")
+            heart.classList.add("show"); // Make heart visible
+
+        }
+    });
+
+    // Once the heart is revealed, make it clickable to unlock the next puzzle
+    heart.addEventListener("click", function () {
+        console.log("Heart clicked! Unlocking next puzzle...");
+        heart.style.transform = "scale(1.5)";
+
+        setTimeout(() => {
+            document.getElementById("puzzle2").classList.remove("hidden");
+            heart.style.display = "none";
+        }, 1000);
+    });
+});
+
+
+
+
+// Puzzle 2: Love Code (Special Date)
+function checkLoveCode() {
+  const input = document.getElementById("loveCodeInput").value;
+  if (input === "07022024") { // Change this to your real date!
+      document.getElementById("loveCodeMessage").classList.remove("hidden");
+      setTimeout(() => {
+          document.getElementById("puzzle3").classList.remove("hidden");
+      }, 1500);
+  } else {
+      alert("Oops! Try again, my love. ❤️");
+  }
+}
+
+// Puzzle 3: Final Lock (Anagram)
+function checkFinalCode() {
+  const input = document.getElementById("finalCodeInput").value.toLowerCase();
+  if (input === "loveyou") {
+      document.getElementById("finalCodeMessage").classList.remove("hidden");
+      setTimeout(() => {
+          document.getElementById("finalMessage").classList.remove("hidden");
+      }, 2000);
+  } else {
+      alert("Not quite right! Rearrange the letters carefully. ❤️");
+  }
+}
+
+
+  particlesJS.load('particles-js', 'particles-config.json', function () {
+    console.log('Particles.js loaded successfully!');
+  });
+  </script>
+</body>
+</html>

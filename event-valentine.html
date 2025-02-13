@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
-<body>
+<body class="event3">
   <div id="particles-js"></div> 
   <div id="preloader">
       <div class="spinner"></div>
@@ -25,21 +25,326 @@
     </nav>
   </header>
   <main>
-    <h3>The moon is beautiful tonight, isn't it? (This is too cheesy.)</h3>
+
     <div id="countdown-valentine">
       <p>Unlocks in: <span id="timer-valentine"></span></p>
     </div>
+
     <div id="content-valentine" class="hidden">
-      <h2>Valentine</h2>
-      <p>Valentineeeeeeeeeeeee</p>
-      <img src="images/valentine.jpg" alt="Valentine">
+      <div id="puzzle-1">
+          <h2>🌌 The Stars Hold a Secret... 🔎</h2>
+          <!-- <p>Find a hidden heart in the night sky and see what it hides!</p> -->
+      
+          <!-- Night Sky Background -->
+          <div id="night-sky">
+              <!-- Aquarius Constellation -->
+              <img id="aquarius" src="images/aquarius.png" alt="Aquarius Constellation">
+              
+              <!-- Saturn (Heart is hidden in its rings) -->
+              <img id="saturn" src="images/saturn.png" class="clickable" alt="Saturn">
+
+              <img id="earth" src="images/earth.png" class="clickable" alt="Earth">
+
+              <img id="venus" src="images/venus.png" class="clickable" alt="Venus">
+
+              <img id="jupiter" src="images/jupiter.png" class="clickable" alt="Jupiter">
+
+              <img id="saturn_ring" src="images/saturn_ring.png" class="clickable" alt="Saturn Ring">
+              
+              <!-- Hidden Heart (Appears when Saturn is clicked) -->
+              <img id="hiddenHeart" src="images/heart.png" class="hidden" alt="Hidden Heart">
+          </div>
+          <div id="clue-card" class="flip-card hidden">
+            <div class="flip-card-inner">
+                <div class="flip-card-front">Clue 🔍</div>
+                <div class="flip-card-back">You own my pendant 🪐</div>
+            </div>
+        </div>
+          
+        </div>
+
+        <div id="puzzle-2" class="hidden">
+            <h2>🔢 Solve the Three Clues</h2>
+            <p>Each clue reveals a part of the code.</p>
+        
+            <!-- Clue 1 -->
+            <div class="clue-box">
+                <p>🔍 "In the celestial river where the water-bearer pours, count the luminous whispers that ancient skies adore. Not all are seen, but those that gleam, their number lies between the twin primes of 13 and 17."</p>
+                <p class="hidden" id="clue1-answer">Digit 1: <strong>4</strong></p>
+            </div>
+        
+            <!-- Clue 2 -->
+            <div class="clue-box">
+                <p>🗓️ "From the moment I spoke the question that bound our fates, the moon has waxed and waned in silent debate. Divide the sum of its cycles by the number of seasons, and the answer lies in the realm of earthly reasons."</p>
+                <p class="hidden" id="clue2-answer">Digit 2: <strong>07</strong></p>
+            </div>
+        
+            <!-- Clue 3 -->
+            <div class="clue-box">
+                <p>🌙 "When the sun kisses the horizon and the shadows grow long, a transformation occurs, subtle yet strong. The hour is neither morning nor night, but the moment when you blush with golden light."
+                </p>
+                <p class="hidden" id="clue3-answer">Digit 3: <strong>8</strong></p>
+            </div>
+        
+            <!-- Input Code to Unlock Puzzle 3 -->
+            <div class="code-entry">
+                <p>Enter the code:</p>
+                <input type="text" id="codeInput" placeholder="Enter code..." maxlength="3">
+                <button onclick="checkPuzzle2Code()">Unlock</button>
+                <p id="codeMessage" class="hidden">✅ Correct! Unlocking Puzzle 3...</p>
+            </div>
+        </div>
+        <!-- Puzzle 3 (Initially Hidden) -->
+        <div id="puzzle-3" class="hidden">
+            <h2>🔐 Unlock the Final Message</h2>
+            <p>Find the right codes! Each clue helps you solve one box.</p>
+
+            <div class="clue-container">
+                <!-- Clue Cards -->
+                <div class="clue-card" onclick="flipClue(1)">Clue 1</div>
+                <div class="clue-card" onclick="flipClue(2)">Clue 2</div>
+                <div class="clue-card" onclick="flipClue(3)">Clue 3</div>
+                <div class="clue-card" onclick="flipClue(4)">Clue 4</div>
+            </div>
+
+            <div class="code-container">
+                <!-- Code Boxes -->
+                <input type="text" id="code1" class="code-box" placeholder="Enter code 1" maxlength="3">
+                <input type="text" id="code2" class="code-box" placeholder="Enter code 2" maxlength="3">
+                <input type="text" id="code3" class="code-box" placeholder="Enter code 3" maxlength="3">
+                <input type="text" id="code4" class="code-box" placeholder="Enter code 4" maxlength="3">
+            </div>
+
+            <button onclick="checkFinalCode()">Unlock</button>
+            <p id="finalCodeMessage" class="hidden">✅ Correct! Unlocking final surprise...</p>
+        </div>
+
+        <!-- Final Valentine Message (Initially Hidden) -->
+        <div id="valentine-message" class="hidden">
+            <h1 id="valentine-text">Will you be my valentine? ❤️</h1>
+            <button id="yes-button" onclick="startFireworks()">Yes</button>
+        </div>
+
+        <!-- Fireworks Container -->
+        <canvas id="fireworks"></canvas>
+
+
+        
     </div>
+
+
+    
+
+
+    
   </main>
   <script src="script.js"></script>
   <script>
-  particlesJS.load('particles-js', 'particles-config.json', function () {
-    console.log('Particles.js loaded successfully!');
-  });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const saturn = document.getElementById("saturn_ring");
+        const heart = document.getElementById("hiddenHeart");
+
+        if (!saturn || !heart) {
+            console.error("Error: Saturn or hidden heart element not found!");
+            return;
+        }
+
+        // Click Saturn to reveal the heart
+        saturn.addEventListener("click", function () {
+            console.log("Saturn clicked! Revealing the hidden heart...");
+            heart.classList.remove("hidden")
+            heart.classList.add("show"); // Make the heart visible
+            saturn.style.opacity = 1
+            saturn.style.backgroundColor = "#3c4358"
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const clueCard = document.getElementById("clue-card");
+    const puzzle2 = document.getElementById("puzzle-2"); // Ensure puzzle 2 has an ID
+    const heart = document.getElementById("hiddenHeart");
+
+    if (!clueCard) {
+        console.error("Error: Clue card not found!");
+        return;
+    }
+
+    setTimeout(() => {
+        clueCard.classList.remove("hidden");
+      }, 1000);   
+    // Flip card on click
+    clueCard.addEventListener("click", function () {
+        clueCard.classList.toggle("flipped");
+    });
+
+    // Hide clue card when puzzle 2 appears
+    const observer = new MutationObserver(() => {
+        if (!heart.classList.contains("hidden")) {
+            clueCard.classList.add("hidden");
+        }
+    });
+
+    observer.observe(puzzle2, { attributes: true, attributeFilter: ["class"] });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const saturn = document.getElementById("saturn");
+    const heart = document.getElementById("hiddenHeart");
+    const puzzle2 = document.getElementById("puzzle-2");
+
+    if (!saturn || !heart || !puzzle2) {
+        console.error("Error: Missing elements for Puzzle 1 or Puzzle 2!");
+        return;
+    }
+
+    // Click Saturn to reveal the heart
+    saturn.addEventListener("click", function () {
+        console.log("Saturn clicked! Revealing the hidden heart...");
+        heart.classList.add("show"); // Make the heart visible
+    });
+
+    // Click the hidden heart to reveal Puzzle 2
+    heart.addEventListener("click", function () {
+        console.log("Hidden heart clicked! Unlocking Puzzle 2...");
+        puzzle2.classList.remove("hidden"); // Show Puzzle 2
+    });
+
+    function checkPuzzle2Code() {
+        const input = document.getElementById("codeInput").value;
+        if (input === "478") {  // Example code
+            document.getElementById("codeMessage").classList.remove("hidden");
+
+            setTimeout(() => {
+                puzzle2.classList.add("hidden"); // Hide Puzzle 2
+                document.getElementById("puzzle-3").classList.remove("hidden"); // Reveal Puzzle 3
+            }, 1500);
+        } else {
+            alert("❌ Wrong code! Try again.");
+        }
+    }
+
+    // Expose function globally
+    window.checkPuzzle2Code = checkPuzzle2Code;
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const puzzle2 = document.getElementById("puzzle-2");
+    const puzzle3 = document.getElementById("puzzle-3");
+    const valentineMessage = document.getElementById("valentine-message");
+    const fireworksCanvas = document.getElementById("fireworks");
+
+    // When Puzzle 2 is solved, hide it & show Puzzle 3
+    function checkPuzzle2Code() {
+        const input = document.getElementById("codeInput").value;
+        if (input === "478") {
+            document.getElementById("codeMessage").classList.remove("hidden");
+
+            setTimeout(() => {
+                puzzle2.classList.add("hidden");
+                puzzle3.classList.remove("hidden");
+            }, 1500);
+        } else {
+            alert("❌ Wrong code! Try again.");
+        }
+    }
+
+    // Check if the four codes are correct to unlock the final surprise
+    function checkFinalCode() {
+        const code1 = document.getElementById("code1").value;
+        const code2 = document.getElementById("code2").value;
+        const code3 = document.getElementById("code3").value;
+        const code4 = document.getElementById("code4").value;
+
+        if (code1 === "123" && code2 === "456" && code3 === "789" && code4 === "101") {
+            document.getElementById("finalCodeMessage").classList.remove("hidden");
+
+            setTimeout(() => {
+                puzzle3.classList.add("hidden");
+                valentineMessage.classList.remove("hidden")
+                valentineMessage.classList.add("show");
+            }, 2000);
+        } else {
+            alert("❌ Wrong codes! Try again.");
+        }
+    }
+
+    // Fireworks Animation
+    function startFireworks() {
+    const canvas = document.getElementById("fireworks");
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    class Particle {
+        constructor(x, y, color) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 5 + 2;
+            this.speedX = (Math.random() - 0.5) * 8;
+            this.speedY = (Math.random() - 0.5) * 8;
+            this.gravity = 0.05;
+            this.color = color;
+            this.alpha = 1;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            this.speedY += this.gravity;
+            this.alpha -= 0.02;
+        }
+
+        draw() {
+            ctx.globalAlpha = this.alpha;
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function createFirework() {
+        const colors = ["#ff69b4", "#ff1493", "#ff0000", "#ff4500", "#ffa07a"];
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height * 0.6; // Fireworks burst in upper 60% of the screen
+
+        for (let i = 0; i < 100; i++) {  // More particles for grand fireworks
+            particles.push(new Particle(
+                x,
+                y,
+                colors[Math.floor(Math.random() * colors.length)]
+            ));
+        }
+    }
+
+    function animateFireworks() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((particle, index) => {
+            particle.update();
+            particle.draw();
+            if (particle.alpha <= 0) particles.splice(index, 1);
+        });
+
+        requestAnimationFrame(animateFireworks);
+    }
+
+    setInterval(createFirework, 800); // Fireworks keep bursting
+    animateFireworks();
+}
+
+
+    // Expose functions globally
+    window.checkPuzzle2Code = checkPuzzle2Code;
+    window.checkFinalCode = checkFinalCode;
+    window.startFireworks = startFireworks;
+});
+
+
+
   </script>
 </body>
 </html>

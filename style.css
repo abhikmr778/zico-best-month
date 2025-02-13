@@ -123,6 +123,11 @@
     background: rgba(255, 255, 255, 0.1); /* White */
     color: rgb(132, 181, 181);
   }
+  #content-valentine {
+  max-width: 500px;
+  background: rgba(0, 0, 0, 0.3); /* black */
+  color: rgb(202, 157, 117);
+  }
   img {
     max-width: 70%;
     height: auto;
@@ -456,9 +461,9 @@
   background-size: cover;
 }
 
-.event3 {
-  background: url('assets/background-event3.jpg') no-repeat center center fixed;
-}
+/* .event3 {
+  background: url('images/nightsky.jpg') no-repeat center center fixed;
+} */
 
 /* Overlay to make text readable */
 .background-overlay {
@@ -595,3 +600,395 @@
 .hiddencanvas {
   display: none;
 }
+
+
+.floating-messages {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 3;
+}
+
+.love-note {
+  position: absolute;
+  bottom: -50px;
+  font-size: 1.5rem;
+  color: #ff69b4;
+  font-weight: bold;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Random Positions */
+.love-note:nth-child(1) { left: 10%; animation-delay: 0s; }
+.love-note:nth-child(2) { left: 30%; animation-delay: 2s; }
+.love-note:nth-child(3) { left: 50%; animation-delay: 4s; }
+.love-note:nth-child(4) { left: 70%; animation-delay: 6s; }
+
+
+
+
+
+/* Night Sky Theme */
+.event3 {
+  position: relative;
+  /* width: 100%; */
+  /* height: 500px; */
+  background: url('images/nightsky.jpg') no-repeat center center fixed;
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Aquarius Constellation */
+#aquarius {
+  position: absolute;
+  top: 160%;
+  left: 15%;
+  width: 200px;
+  opacity: 0.6;
+}
+
+/* Saturn */
+#saturn {
+  position: absolute;
+  top: 100%;
+  left: 70%;
+  width: 100px;
+  /* cursor: pointer; */
+  /* transition: transform 0.3s ease-in-out; */
+  opacity: 0.3;
+}
+
+/* Earth */
+#earth {
+  position: absolute;
+  top: 180%;
+  left: 70%;
+  width: 100px;
+  /* cursor: pointer; */
+  /* transition: transform 0.3s ease-in-out; */
+  opacity: 0.3;
+}
+
+/* Venus */
+#venus {
+  position: absolute;
+  top: 120%;
+  left: 50%;
+  width: 100px;
+  /* cursor: pointer; */
+  /* transition: transform 0.3s ease-in-out; */
+  opacity: 0.3;
+}
+
+/* Jupiter */
+#jupiter {
+  position: absolute;
+  top: 140%;
+  left: 20%;
+  width: 100px;
+  /* cursor: pointer; */
+  /* transition: transform 0.3s ease-in-out; */
+  opacity: 0.3;
+}
+
+/* saturn ring */
+#saturn_ring {
+  position: absolute;
+  top: 150%;
+  left: 5%;
+  width: 200px;
+  /* cursor: pointer; */
+  /* transition: transform 0.3s ease-in-out; */
+  opacity: 0.5;
+}
+
+/* Hidden Heart */
+#hiddenHeart {
+  position: absolute;
+  top: 155%;
+  left: 10%;
+  width: 30px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* When the heart appears */
+#hiddenHeart.show {
+  opacity: 1;
+  pointer-events: auto;
+  animation: heartbeat 1.5s infinite alternate;
+}
+
+/* Saturn Hover Effect */
+#jupiter:hover {
+  transform: scale(1.05);
+}
+
+/* Saturn Hover Effect */
+#saturn:hover {
+  transform: scale(1.05);
+}
+
+/* Saturn Hover Effect */
+#saturn_ring:hover {
+  transform: scale(1.05);
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+  from {
+      transform: scale(1);
+  }
+  to {
+      transform: scale(1.2);
+  }
+}
+
+/* Flip Card at Bottom */
+#clue-card {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 120px;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: opacity 0.5s ease-in-out;
+  animation: zoomIn 10s ease-in-out
+}
+
+/* Hide Clue */
+#clue-card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Inner Flip Effect */
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+/* Flip When Clicked */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Front & Back Styles */
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* Front */
+.flip-card-front {
+  background: rgb(43, 39, 56);
+  color: white;
+}
+
+/* Back */
+.flip-card-back {
+  background: #ffe4e1;
+  color: black;
+  transform: rotateY(180deg);
+}
+
+
+
+/* Puzzle 2 Styling */
+/* Position Puzzle 2 at the Bottom */
+#puzzle-2 {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 550px;
+  padding: 20px;
+  background: rgb(43, 39, 56);
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 0.8;
+}
+
+/* Hide Puzzle 2 by Default */
+#puzzle-2.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Hide the Clue Card When Puzzle 2 Appears */
+.hidden-clue {
+  display: none;
+}
+
+/* Clue Box */
+.clue-box {
+  background: #fff;
+  padding: 15px;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Hidden Clue Answer */
+.hidden {
+  display: none;
+}
+
+/* Code Entry Box */
+.code-entry {
+  margin-top: 20px;
+}
+
+/* Input Styling */
+#codeInput {
+  padding: 10px;
+  border: 2px solid rgb(27, 25, 36);
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  width: 100px;
+}
+
+/* Button */
+button {
+  background-color: rgb(33, 30, 43);
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+button:hover {
+  background-color: #d14787;
+}
+
+
+/* Puzzle 3 Styling */
+#puzzle-3 {
+  text-align: center;
+  margin-top: 20px;
+  padding: 20px;
+  background: rgba(255, 192, 203, 0.95);
+  border-radius: 15px;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Clue Cards */
+.clue-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.clue-card {
+  background: #ff69b4;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.clue-card:hover {
+  transform: scale(1.1);
+}
+
+/* Code Boxes */
+.code-container {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.code-box {
+  width: 70px;
+  padding: 10px;
+  font-size: 18px;
+  text-align: center;
+  border: 2px solid #ff69b4;
+  border-radius: 5px;
+}
+
+/* Valentine Message */
+#valentine-message {
+  text-align: center;
+  font-size: 3rem;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Show Valentine Message */
+#valentine-message.show {
+  opacity: 1;
+}
+
+/* "Yes" Button */
+#yes-button {
+  margin-top: 20px;
+  padding: 15px 25px;
+  font-size: 24px;
+  background: #ff69b4;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#yes-button:hover {
+  background: #d14787;
+}
+
+/* Full-Screen Fireworks */
+#fireworks {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  background: transparent;
+  pointer-events: none;
+}
+
