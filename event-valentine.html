@@ -106,31 +106,31 @@
        <!-- Puzzle 3 (Initially Hidden) -->
 <div id="puzzle-3" class="hidden">
     <h2>🔐 How good is your memory.</h2>
-    <p>Each clue helps you find one code.</p>
+    <p>One word small case or numeric answers only.</p>
 
     <div class="code-container">
         <!-- Clue 1 -->
         <div class="code-box">
-            <p>Clue: "The day when I asked you to be my partner.."</p>
-            <input type="text" id="code1" placeholder="Enter code 1" maxlength="3">
+            <p>Clue: "What did I cook for you in Delhi?"</p>
+            <input type="text" id="code1" placeholder="Enter answer 1" maxlength="10">
         </div>
 
         <!-- Clue 2 -->
         <div class="code-box">
-            <p>Clue: "How many times have we visited Lohia Park."</p>
-            <input type="text" id="code2" placeholder="Enter code 2" maxlength="3">
+            <p>Clue: "Most important keyword from the last movie we watched together in dc."</p>
+            <input type="text" id="code2" placeholder="Enter answer 2" maxlength="10">
         </div>
 
         <!-- Clue 3 -->
         <div class="code-box">
             <p>Clue: "Your partner's birthday day."</p>
-            <input type="text" id="code3" placeholder="Enter code 3" maxlength="3">
+            <input type="text" id="code3" placeholder="Enter answer 3" maxlength="10">
         </div>
 
         <!-- Clue 4 -->
         <div class="code-box">
-            <p>Clue: "Your fav number."</p>
-            <input type="text" id="code4" placeholder="Enter code 4" maxlength="3">
+            <p>Clue: "Name of the song I played for you."</p>
+            <input type="text" id="code4" placeholder="Enter answer 4" maxlength="10">
         </div>
     </div>
 
@@ -290,8 +290,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const code2 = document.getElementById("code2").value;
     const code3 = document.getElementById("code3").value;
     const code4 = document.getElementById("code4").value;
+    // const code5 = document.getElementById("code5").value;
 
-    if (code1 === "4" && code2 === "4" && code3 === "19" && code4 === "10") {
+    if (code1 === "chicken" && code2 === "sajid" && code3 === "19" && code4 === "crush") {
         document.getElementById("finalCodeMessage").classList.remove("hidden");
         // document.getElementById("valentine-screen").classList.remove("hidden");
 
